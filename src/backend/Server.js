@@ -1,11 +1,19 @@
+require("dotenv").config();
+
+const express = require("express")
+const mongoose = require("mongoose")
+const cors = require("cors")
+
+const app = express()
+
+
+app.use(cors())
+app.use(express.json())
+
 app.get("/", (req, res) => {
   res.send("Backend is Live 🚀");
 });
 
-require("dotenv").config();
-const express = require("express")
-const mongoose = require("mongoose")
-const cors = require("cors")
 
 
 const notesRoutes = require("./routes/notes")
@@ -14,10 +22,7 @@ const adminRoutes = require("./routes/admin")
 const { authenticateToken } = require("./middleware/auth")
 const Note = require("./models/Note")
 
-const app = express()
 
-app.use(cors())
-app.use(express.json())
 
 mongoose.connect("mongodb+srv://Maitri:maitri2005@cluster0.ipzdiqg.mongodb.net/digitalnotes")
 .then(()=>console.log("MongoDB Connected"))
