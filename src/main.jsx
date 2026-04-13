@@ -1,0 +1,12 @@
+// src/main.jsx (Revert to this)
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx'; // 👈 Re-import App
+import './index.css'; 
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App /> {/* 👈 Render App component */}
+  </React.StrictMode>,
+);
